@@ -129,5 +129,16 @@ function renderCreate(obj) {
   profilePic.alt = 'Profile Picture'
   contactImgDiv.appendChild(profilePic)
 
+  const formDiv = document.createElement('div')
+  formDiv.classList.add('form') 
+  contactEditDiv.appendChild(formDiv)
+
+  const form = document.createElement('form')
+  formDiv.appendChild(form)
+
+  const inputNameDiv = document.createElement('div')
+  inputNameDiv.classList.add('inputcontainer')
+  form.appendChild(inputNameDiv)
+
   
 }
