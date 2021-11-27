@@ -23,6 +23,8 @@ let contactList = [
 function cleanUpIndex() {
   const bodyDiv = document.querySelector('.main')  
   
+  //loops through child elements while the first child exists and removes the first child
+  //first child changes after each time one is deleted, therefore looping through all of them
   while (bodyDiv.firstChild) {
       bodyDiv.firstChild.remove()
   }
@@ -140,5 +142,17 @@ function renderCreate(obj) {
   inputNameDiv.classList.add('inputcontainer')
   form.appendChild(inputNameDiv)
 
-  
+  const inputName = document.createElement('input')
+  inputName.setAttribute('id', 'contactname')
+  inputName.type = 'text'
+  inputName.name = 'contactname'
+  inputName.placeholder = 'Contact Name'
+  inputNameDiv.appendChild(inputName)
+
+  const addNameButton = document.createElement('button')
+  addNameButton.setAttribute('id', 'extranamefield')
+  addNameButton.classList.add('extrafield')
+  addNameButton.name = 'extranamefield'
+  addNameButton.innerHTML = '+'
+  inputNameDiv.appendChild(addNameButton)
 }
