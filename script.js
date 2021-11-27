@@ -1,5 +1,3 @@
-const contactsDiv = document.querySelector('.main')
-
 let contactList = [
     {
       name: "Barry Allen",
@@ -21,18 +19,21 @@ let contactList = [
     }
   ]
 
+//Functions for Index page
 function cleanUpIndex() {
+  const bodyDiv = document.querySelector('.main')  
+  
+  while (bodyDiv.firstChild) {
+      bodyDiv.firstChild.remove()
+  }
 
-    while (contactsDiv.firstChild) {
-        contactsDiv.firstChild.remove()
-    }
 }
 
 function createSingleIndex(obj) {
-    var link = document.createElement('a')
-    var indexCardDiv = document.createElement('div')
+    const link = document.createElement('a')
+    const indexCardDiv = document.createElement('div')
     indexCardDiv.classList.add('contact')
-    var paragraph = document.createElement('p')
+    const paragraph = document.createElement('p')
     
     paragraph.innerHTML = obj.name
     indexCardDiv.appendChild(paragraph)
@@ -43,8 +44,90 @@ function createSingleIndex(obj) {
 }
 
 function renderIndex(array) {
+    const bodyDiv = document.querySelector('.main')
+  
     for (let i = 0; i < array.length; i++) {
-        contactsDiv.appendChild(createSingleIndex(contactList[i]))
+      bodyDiv.appendChild(createSingleIndex(contactList[i]))
     }
 }
 
+
+//Functions for View page (page with existing contact)
+function cleanUpView() {
+  const contactInfoDiv = document.querySelector('.contactinfo')
+
+  while (contactInfoDiv.firstChild) {
+    contactInfoDiv.firstChild.remove()
+  }
+}
+
+function renderView(obj) {
+  const contactInfoDiv = document.querySelector('.contactinfo')
+
+  const contactName = document.createElement('div')
+  contactName.classList.add('contactname')
+  contactName.innerHTML = obj.name 
+  contactInfoDiv.appendChild(contactName)
+
+  const profilePic = document.createElement('img')
+  profilePic.classList.add('profilepic')
+  profilePic.src = "./img/profile.jpg"
+  profilePic.alt = "Profile picture"
+  contactName.appendChild(profilePic)
+
+  const contactEmail = document.createElement('div')
+  contactEmail.classList.add('contactemail')
+  contactEmail.innerHTML = `email: ${obj.email}` 
+  contactInfoDiv.appendChild(contactEmail)
+
+  const contactPhone = document.createElement('div')
+  contactPhone.classList.add('contactphone')
+  contactPhone.innerHTML = `cell: ${obj.phone}` 
+  contactInfoDiv.appendChild(contactPhone)
+
+  const contactAddress = document.createElement('div')
+  contactAddress.classList.add('contactaddress')
+  contactAddress.innerHTML = `address: ${obj.address}` 
+  contactInfoDiv.appendChild(contactAddress)
+
+  const buttonContainer = document.createElement('div')
+  buttonContainer.classList.add('buttons')
+  contactInfoDiv.appendChild(buttonContainer)
+
+  const editButton = document.createElement('button')
+  editButton.classList.add('edit', 'button')
+  editButton.innerHTML = 'Edit'
+  buttonContainer.appendChild(editButton)
+
+  const closeButton = document.createElement('button')
+  closeButton.classList.add('close', 'button')
+  closeButton.innerHTML = 'Close'
+  buttonContainer.appendChild(closeButton)
+}
+
+
+
+//Functions for Create page (create new contact page)
+function cleanUpCreate() {
+  const contactEditDiv = document.querySelector('.contactedit')
+
+  while (contactEditDiv.firstChild) {
+    contactEditDiv.firstChild.remove()
+  }
+}
+
+function renderCreate(obj) {
+  const contactEditDiv = document.querySelector('.contactedit')
+  
+  const contactImgDiv = document.createElement('div')
+  contactImgDiv.classList.add('contactimg')
+  contactEditDiv.appendChild(contactImgDiv)
+
+  const profilePic = document.createElement('img')
+  profilePic.classList.add('profilepic')
+  profilePic.src = './img/profile.jpg'
+  profilePic.alt = 'Profile Picture'
+  contactImgDiv.appendChild(profilePic)
+
+  
+}
