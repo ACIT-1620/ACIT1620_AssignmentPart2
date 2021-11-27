@@ -1,3 +1,9 @@
+//Author: Lucas Angelozzi
+//Date: 11/26/21
+
+//This file contains functions to clear and render each page using contents of contactList
+
+//array of contact objects
 let contactList = [
     {
       name: "Barry Allen",
