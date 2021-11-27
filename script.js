@@ -2,17 +2,23 @@ const contactsDiv = document.querySelector('.main')
 
 let contactList = [
     {
-      name: "Roberta Dobbs",
-      phone: "778-555-1234",
-      address: "101 Main St, Anytown, USA",
-      email: "subgenius@slack.example.com",
+      name: "Barry Allen",
+      phone: "+1 555 555-555",
+      address: " 123 front st, Unit #1, Dakota City",
+      email: "rocket@gmail.com",
     }, 
     {
-      name: "Bugs Bunny",
-      phone: "123-867-5309",
-      address: "Warner Brothers Animation Lot",
-      email: "whatsup@doc.example.com",
+      name: "Beverly Crusher",
+      phone: "+1 555 555-555",
+      address: " 123 front st, Unit #1, Dakota City",
+      email: "rocket@gmail.com",
     },
+    {
+      name: "Diana Prince",
+      phone: "+1 555 555-555",
+      address: " 123 front st, Unit #1, Dakota City",
+      email: "rocket@gmail.com",
+    }
   ]
 
 function cleanUpIndex() {
